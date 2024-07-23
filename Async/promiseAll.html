@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- call team leader -->
+    <!-- call tl to hr  -->
+    <!-- leave approved  -->
+
+    <script>
+        const calledTeamleader = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('called team leader');
+            }, 3000)
+        })
+
+        const calledTeamleaderToHr = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Called Teamleader To Hr');
+            }, 2000)
+        })
+
+        const leaveApproved = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Leave Approved 💖');
+            }, 4000)
+        })
+
+        Promise.allSettled([calledTeamleader(), calledTeamleaderToHr(), leaveApproved()]).then((data) => {
+            data.forEach((result) => console.log(result.status === 'fulfilled' ? result.value : result.reason));
+        })
+
+        // Promise.allSettled, => it returns a promise that resolves after all of the given promises have either resolved or rejected. 
+        // STATUS :>> : This will be either 'fulfilled' or 'rejected'.
+        // value::>> : This property is present if the promise was fulfilled, containing the resolved value.
+        // reason ::>> : This property is present if the promise was rejected, containing the reason for rejection.
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const getStudentData = () => {
+        //     setTimeout(() => {
+        //         const rollNo = 101;
+        //         console.log("Roll Number ::>>", rollNo);
+
+        //         setTimeout(() => {
+        //             const stuData = {
+        //                 name: 'Jack',
+        //                 age: 35,
+        //             }
+        //             console.log(`My name is ${stuData.name} and I am a ${stuData.age} years Old`);
+
+        //             setTimeout(() => {
+        //                 const gender = 'Male'
+        //                 console.log(`My Gender is ${gender}`);
+        //             }, 3000);
+        //         }, 3000);
+        //     }, 3000);
+        // }
+        // getStudentData();
+
+        function fetchData(callback) {
+            setTimeout(() => {
+                console.log("Data fetched");
+                callback();
+            }, 1000);
+        }
+
+        function processData(callback) {
+            setTimeout(() => {
+                console.log("Data processed");
+                callback();
+            }, 1000);
+        }
+
+        function saveData(callback) {
+            setTimeout(() => {
+                console.log("Data saved");
+                callback();
+            }, 1000);
+        }
+
+        fetchData(() => {
+            processData(() => {
+                saveData(() => {
+                    console.log("All tasks completed");
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

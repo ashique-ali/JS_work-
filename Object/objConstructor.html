@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 style="text-align: center">Object Constructor Function</h1>
+
+  <script>
+    function student1(id, name, lastName, age, city, course, country) {
+      this.id = id;
+      this.firstName = name;
+      this.lastName = lastName;
+      this.age = age;
+      this.city = city;
+      this.course = course;
+      this.country = country;
+    }
+
+    const result1 = new student1(101, "micheal", "Jackson", 20, "Noida", "BCA", "Australia");
+    result1.nationality = "Indian";
+
+    result1.fullName = function() {
+      return this.firstName + " " + this.lastName;
+    }
+
+    const result2 = new student1(102, "John", "Doe", 28, "Lucknow", "MCA", "South Africa");
+    console.log("result1 ::>>", result1.fullName());
+    console.log("result2 ::>>", result2);
+  </script>
+</body>
+
+</html>

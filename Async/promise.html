@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- addToCart
+otpReceived
+paymentSuccess
+orderPlaced -->
+
+<body>
+    <script>
+        const addToCart = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Item added to cart successfully!');
+            }, 3000);
+        });
+
+        const otpReceived = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('OTP received successfully!');
+            }, 2000);
+        });
+
+        const paymentSuccess = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Payment successful!');
+            }, 1000);
+        });
+
+        const orderPlaced = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Order placed successfully!');
+            }, 500);
+        });
+
+        addToCart()
+            .then((value) => {
+                console.log(value);
+                return otpReceived();
+            })
+            .then((value) => {
+                console.log(value);
+                return paymentSuccess();
+            })
+            .then((value) => {
+                console.log(value);
+                return orderPlaced();
+            })
+            .then((value) => {
+                console.log(value);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    </script>
+</body>
+
+</html>

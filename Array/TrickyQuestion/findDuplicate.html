@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const arrElement = [44, 10, 20, 30, 20, 40, 10, 30];
+        // console.log("original Array ::>>", arrElement);
+        // const duplicateArray = arrElement.filter((item, index) => {
+        //     return arrElement.indexOf(item) !== index;
+        // })
+        // console.log("duplicateArray", duplicateArray);
+
+        const arrElement = [44, 10, 20, 30, 20, 40, 10, 30];
+        function findDuplicates(arr) {
+            const abc = arr.filter((item, index) => {
+                return arr.indexOf(item) !== index;
+            });
+            console.log("abcabc", abc);
+        }
+        findDuplicates(arrElement);
+    </script>
+</body>
+
+</html>

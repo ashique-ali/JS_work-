@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student1 = {
+	        name: "Manish",
+	        company: "Gfg"      
+        }
+        let student2 = Object.assign({}, student1);
+        student1.name = "Rakesh"
+        console.log("student 1 name is", student1.name)
+        console.log("student 2 name is ", student2.name);
+    </script>
+</body>
+</html>

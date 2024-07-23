@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array = [1, 2, 3, 4, 5, 6, 9, 10];
+        const findMissingElements = () => {
+            const minValue = Math.min(...array);
+            const maxValue = Math.max(...array);
+            const missingArray = [];
+            for (let i = minValue; i < maxValue; i++) {
+                if (array.indexOf(i) < 0) {
+                    missingArray.push(i);
+                }
+            }
+            return missingArray;
+        }
+        const missingElements = findMissingElements();
+        console.log("Missing elements ::>>", missingElements);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="text-align: center;"> <========== Call Method =========></h2>
+    <script>
+        let person1 = {
+            fName : "Adarsh",
+            lName : "Pandey",
+            fullName : function(city,country) {
+                return this.fName + " " + this.lName + " " + city + " " + country;
+            }
+        }
+
+        person2 = {
+            fName : "Ashish",
+            lName : "Kumar",
+        }
+        console.log("person2 is ::>>", person1.fullName.call(person2, "India", "Lucknow"));
+    </script>
+</body>
+</html>
+
+

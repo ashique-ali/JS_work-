@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>find() method is used to search for an element in an array. It returns the first element in the array that
+        matches the provided function.</h3>
+
+    <script>
+        const array = [10, 5, 8, 20, 15, 25];
+        console.log("array ::>>", array);
+        const findMethod = () => {
+            const result = array.find((item) => {
+                return item > 5;
+            });
+            console.log('result ::>>', result);
+        }
+        findMethod(array);
+    </script>
+</body>
+
+</html>

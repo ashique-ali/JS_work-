@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Employee = {
+            id: 101,
+            fName: "Micheal",
+            lName: "Jonshon",
+            city: "Noida",
+            course: "BCA",
+            set setName(n) {
+                this.fName = n.toUpperCase();
+            }
+        }
+        Employee.setName = "Jack";
+        console.log("Employee ::>>", Employee);
+    </script>
+</body>
+</html>

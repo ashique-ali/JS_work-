@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="text-align: center;"><=========== Apply Method ==========></h2>
+    <script>
+        let Student1 = {
+            firstName : "Amit",
+            lastName : "Kumar",
+            city : "Kanpur",
+            course : "BCA",
+            myFunction : function(age,roll) {
+                return this.firstName + " " + this.lastName + " " + this.city + " " + this.course+ " " + this.country + " " + age + " " + roll;
+            }
+        }
+
+        Student2 = {
+            firstName : "Sumit",
+            lastName : "Kumar",
+            city : "Lucknow",
+            course : "B-TECH"
+        }
+        Student2.country = "India";
+        console.log("Student2 is ::>>", Student1.myFunction.apply(Student2, [22,1200]));
+        // console.log("Keys ::>>", Object.keys(Student2));
+        // for(let key in Student2) {
+        //     console.log(key + ' : ' +  Student2[key]);
+        // }
+    </script>
+</body>
+</html>

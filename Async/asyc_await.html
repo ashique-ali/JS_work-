@@ -1,0 +1,79 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        console.log("Line Number 11");
+        async function myFunction() {
+            try {
+                const response = await new Promise((resolve, reject) => {
+                    reject("Something went wrong ...!");
+                });
+                setTimeout(() => {
+                    console.log("Line Number 17");
+                }, 4000)
+                console.log("Line Number 20");
+            } catch (error) {
+                console.log("Error 22 ::>>", error);
+            }
+        }
+        console.log("line Number 16");
+        myFunction();
+    </script> -->
+
+    <!-- addToCart
+otpReceived
+paymentSuccess
+orderPlaced -->
+
+<script>
+    const addToCart = () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('item added to cart !!');
+        }, 3000);
+    })
+
+    const otpReceived = () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Otp received Successfully !!');
+        }, 1000);
+    })
+
+    const paymentSuccess = () => new Promise((resolve, reject) => {    
+        setTimeout(() => {
+            resolve('payment Successfuly !!');
+        }, 2000);
+    })
+
+    const orderPlaced = () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // resolve('Order Placed Successfully !!');
+            reject('something wrong')
+        }, 3000);
+    })
+
+    OrderProcess = async () => {
+        try {
+            const addToCartResult = await addToCart();
+            console.log(addToCartResult);
+            const otpReceivedResult = await otpReceived();
+            console.log(otpReceivedResult);
+            const paymentResult = await paymentSuccess();
+            console.log(paymentResult);
+            const orderResult = await orderPlaced();
+            console.log(orderResult);
+        } catch(error) {
+            console.log(error)
+        }
+    }
+    OrderProcess();
+</script>
+
+</body>
+
+</html>

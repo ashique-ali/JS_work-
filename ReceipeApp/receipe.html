@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edamam API Fetch</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+      margin-top: 50px;
+    }
+
+    #row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+    }
+
+    .pdpImageBlock img {
+      width: 100%;
+    }
+
+    input {
+      outline: none;
+      padding: 10px;
+      border: 1px solid #ddd;
+      width: 450px;
+      margin: auto;
+      box-shadow: 1px 2px 3px 4px #ddd;
+      border-radius: 5px;
+    }
+
+    .searchBar {
+      text-align: center;
+      box-shadow: 1px 2px 3px 4px #ddd;
+      padding: 14px 0px;
+      width: 100%;
+      margin: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="searchBar">
+    <input type="search" placeholder="search here ..." id="searchBox" name="search" />
+  </div>
+  <script>
+    const appId = "7f64e796";
+    const appKey = "e769488dee0470063cb7df3dc7361fc8";
+    const query = "paneer";
+    const Url = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${appId}&app_key=${appKey}`;
+
+    const GetproductAPI = async () => {
+      const mainDiv = document.createElement("div");
+      mainDiv.id = "row";
+      document.body.appendChild(mainDiv);
+      const Rowdiv = document.createElement("div");
+      Rowdiv.classList = "container";
+      document.body.appendChild(Rowdiv);
+      try {
+        const res = await fetch(Url);
+        const resData = await res.json();
+        resData.hits.map((item) => {
+          const Image = document.createElement("div");
+          Image.classList = "pdpImageBlock";
+          mainDiv.appendChild(Image);
+
+          const img = document.createElement("img");
+          img.src = item.recipe.images.REGULAR.url;
+
+          const Title = document.createElement("div");
+          Title.classList = "pdpTitle";
+          const pdpTitle = document.createElement("p");
+          pdpTitle.textContent = item.recipe.label;
+
+          Rowdiv.appendChild(mainDiv);
+          Image.appendChild(img);
+          Image.appendChild(Title);
+          Title.appendChild(pdpTitle);
+        });
+      } catch (error) {
+        console.log("Error ::>>", error);
+      }
+    };
+    GetproductAPI();
+
+    // =============== pdpListing End  ===============
+
+    //================ Searchbar  ====================
+
+    document.getElementById("searchBox").addEventListener("keyup", async (event) => {
+      const searchValue = document.getElementById("searchBox").value.trim();
+      if (searchValue.length > 0 && event.key === "Enter") {
+        const baseUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchValue}&app_id=${appId}&app_key=${appKey}`;
+        try {
+          const response = await fetch(baseUrl);
+          if (!response.ok) throw new Error(`Error: ${response.status} ${response.statusText}`);
+          const responseData = await response.json();
+          const images = document.querySelectorAll(".pdpImageBlock img");
+          responseData.hits.forEach((searchItem, index) => {
+            if (index < images.length && searchItem.recipe.image) {
+              images[index].setAttribute("src", searchItem.recipe.image);
+            }
+          });
+        } catch (error) {
+          console.log("Error:", error);
+        }
+      } else if (searchValue.length === 0) {
+        document.querySelectorAll(".pdpImageBlock img").forEach((item) => {
+          item.parentElement.remove();
+        });
+        console.log("Input value is empty");
+        GetproductAPI(); 
+      }
+    });
+
+  </script>
+</body>
+
+</html>

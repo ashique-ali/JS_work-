@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student1 = {
+            name: "Ashique",
+            company: "ENS",
+            address: {
+                city: "Lucknow",
+                country: "India"
+            }
+        };
+        let student2 = JSON.parse(JSON.stringify(student1));
+        student1.address.country = "England";
+        console.log("student2:", student2);
+        console.log("student1:", student1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>This is Currying function</h1>
+
+    <script>
+        const add = (a) => {
+            return function(b) {
+                return function (c) {
+                    return a + b + c;
+                }
+            }
+        }
+        console.log("sum of =>", add(10)(20)(30));
+    
+    // const person1 = {
+    //     id: 101,
+    //     fName: "Amit",
+    //     email: "amit121@gmail.com",
+    //     city: "Lucknow"
+    // };
+
+    // const info = ((obj) => {
+    //     return (name) => {
+    //         return obj[name]; // return obj of key this line
+    //     }
+    // })
+    // const result = info(person1);
+    // console.log('result', result); // this log return function defination
+    // console.log(result('fName')); // this log return person1 of fName = Amit
+    </script>
+</body>
+
+</html>

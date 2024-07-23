@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [10, 55, 25, 45, 5, 22];
+        console.log("originalArray ::>>", arr);
+        const maxValue = () => {
+            const result = arr.reduce((prevNumber, currNumber) => {
+                console.log("NUmbers ::>>", prevNumber, currNumber);
+                return prevNumber > currNumber ? prevNumber : currNumber;
+            })
+            console.log("Resule Max Element ::>>", result);
+        }
+        maxValue(arr)
+    </script>
+</body>
+
+</html>

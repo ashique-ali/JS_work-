@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array = [10, 20, 5, 8, 40];
+        console.log("array ::>>", array);
+        const sumArray = (array) => {
+            const sum = array.reduce((pre , curr) => {
+                return pre + curr;
+            })
+            console.log("result ::>>", sum);
+        }
+        sumArray(array);
+    </script>
+</body>
+
+</html>

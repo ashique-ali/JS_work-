@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [10, 30, 50, 8, 40];
+        console.log("arr is = ", arr);
+        const result = arr.reduce((pre, curr) => {
+            console.log("Numbers ::>>", pre, curr);
+            return pre < curr ? pre : curr;
+        })
+        console.log("Minimum Element ::>>", result);
+    </script>
+</body>
+
+</html>
